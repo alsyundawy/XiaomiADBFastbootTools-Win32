@@ -15,7 +15,7 @@
 
 **Warning: Use the tool at your own risk. Removing factory apps which aren't in the tool may break your phone.**
 
-[Download the binary (ADB/Fastboot included)](https://drive.google.com/open?id=1HYfHg6DlAUf2WBJdgUj_ql_RLpzNQh1Z)
+[Download the binary (ADB/Fastboot included)](https://www.dropbox.com/s/ysi264nu6mbml9j/Xiaomi%20ADB%20and%20Fastboot%20Tools.zip?dl=0)
 
 Changelog:
 
