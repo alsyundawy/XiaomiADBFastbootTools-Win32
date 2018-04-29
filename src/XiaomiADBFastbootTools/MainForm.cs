@@ -306,26 +306,26 @@ namespace XiaomiADBFastbootTools
 
         private void bADBRebootSystem_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "reboot" });
             tbOutput.Text = "Rebooting...";
+            ADB(new string[] { "reboot" });
         }
 
         private void bADBRebootRecovery_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "reboot recovery" });
             tbOutput.Text = "Rebooting...";
+            ADB(new string[] { "reboot recovery" });
         }
 
         private void bADBRebootFastboot_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "reboot bootloader" });
             tbOutput.Text = "Rebooting...";
+            ADB(new string[] { "reboot bootloader" });
         }
 
         private void bADBRebootEDL_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "reboot edl" });
             tbOutput.Text = "Rebooting...";
+            ADB(new string[] { "reboot edl" });
         }
 
         private void bDeviceProperties_Click(object sender, EventArgs e)
@@ -373,8 +373,8 @@ namespace XiaomiADBFastbootTools
 
         private void bCamera2API_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "shell setprop persist.camera.HAL3.enabled 1", "shell setprop persist.camera.eis.enable 1" });
             tbOutput.Text = "Camera2 API enabled!";
+            ADB(new string[] { "shell setprop persist.camera.HAL3.enabled 1", "shell setprop persist.camera.eis.enable 1" });
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
