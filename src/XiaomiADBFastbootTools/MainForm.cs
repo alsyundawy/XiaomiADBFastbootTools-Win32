@@ -18,6 +18,9 @@ namespace XiaomiADBFastbootTools
         string driverfolder = Directory.GetCurrentDirectory() + "\\drivers";
         string output = "";
 
+        bool fastbootActive = false;
+        bool adbActive = false;
+
         public MainForm()
         {
             InitializeComponent();
@@ -39,7 +42,10 @@ namespace XiaomiADBFastbootTools
             if (File.Exists(driverfolder + "\\AdbWinUsbApi.dll") != true) str += "AdbWinUsbApi.dll not found!\r\n";
             tbOutput.Text = str;
             if (str != "")
+            {
+                fastbootActive = false;
                 return false;
+            }
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.UseShellExecute = false;
@@ -56,6 +62,7 @@ namespace XiaomiADBFastbootTools
             {
                 tbOutput.Text = "No device found!";
                 process.Close();
+                fastbootActive = false;
                 return false;
             }
 
@@ -73,6 +80,7 @@ namespace XiaomiADBFastbootTools
             if (info.Contains("unlocked: true")) bootloaderLabel.Text = "unlocked";
             if (info.Contains("unlocked: false")) bootloaderLabel.Text = "locked";
             process.Close();
+            fastbootActive = true;
             return true;
         }
 
@@ -86,7 +94,10 @@ namespace XiaomiADBFastbootTools
             if (File.Exists(driverfolder + "\\AdbWinUsbApi.dll") != true) str += "AdbWinUsbApi.dll not found!\r\n";
             tbOutput.Text = str;
             if (str != "")
+            {
+                adbActive = false;
                 return false;
+            }
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.UseShellExecute = false;
@@ -102,11 +113,13 @@ namespace XiaomiADBFastbootTools
             if (line.Contains("no devices"))
             {
                 tbOutput.Text = "No device found!";
+                adbActive = false;
                 return false;
             }
             if (line.Contains("unauthorized"))
             {
                 tbOutput.Text = "Device unauthorised!\r\nPlease allow USB debugging!";
+                adbActive = false;
                 return false;
             }
             serialLabel.Text = process.StandardOutput.ReadToEnd();
@@ -123,6 +136,7 @@ namespace XiaomiADBFastbootTools
             if (bl.Contains("0")) bootloaderLabel.Text = "unlocked";
             if (bl.Contains("1")) bootloaderLabel.Text = "locked";
             process.Close();
+            adbActive = true;
             return true;
         }
 
@@ -130,7 +144,7 @@ namespace XiaomiADBFastbootTools
         {
             tbOutput.Text = "Please wait...";
             Cursor.Current = Cursors.WaitCursor;
-            if (Fastboot_Check() != true) return;
+            if (!Fastboot_Check()) return;
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.UseShellExecute = false;
@@ -160,7 +174,7 @@ namespace XiaomiADBFastbootTools
         {
             tbOutput.Text = "Please wait...";
             Cursor.Current = Cursors.WaitCursor;
-            if (ADB_Check() != true) return;
+            if (!ADB_Check()) return;
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.UseShellExecute = false;
@@ -306,31 +320,31 @@ namespace XiaomiADBFastbootTools
 
         private void bADBRebootSystem_Click(object sender, EventArgs e)
         {
-            tbOutput.Text = "Rebooting...";
             ADB(new string[] { "reboot" });
+            if (adbActive) tbOutput.Text = "Rebooting...";
         }
 
         private void bADBRebootRecovery_Click(object sender, EventArgs e)
         {
-            tbOutput.Text = "Rebooting...";
             ADB(new string[] { "reboot recovery" });
+            if (adbActive) tbOutput.Text = "Rebooting...";
         }
 
         private void bADBRebootFastboot_Click(object sender, EventArgs e)
         {
-            tbOutput.Text = "Rebooting...";
             ADB(new string[] { "reboot bootloader" });
+            if (adbActive) tbOutput.Text = "Rebooting...";
         }
 
         private void bADBRebootEDL_Click(object sender, EventArgs e)
         {
-            tbOutput.Text = "Rebooting...";
             ADB(new string[] { "reboot edl" });
+            if (adbActive) tbOutput.Text = "Rebooting...";
         }
 
         private void bDeviceProperties_Click(object sender, EventArgs e)
         {
-            if (ADB_Check() != true) return;
+            if (!ADB_Check()) return;
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.UseShellExecute = false;
@@ -349,7 +363,7 @@ namespace XiaomiADBFastbootTools
 
         private void bDebloater_Click(object sender, EventArgs e)
         {
-            if (ADB_Check() != true) return;
+            if (!ADB_Check()) return;
             Debloater dlg = new Debloater();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -373,8 +387,8 @@ namespace XiaomiADBFastbootTools
 
         private void bCamera2API_Click(object sender, EventArgs e)
         {
-            tbOutput.Text = "Camera2 API enabled!";
             ADB(new string[] { "shell setprop persist.camera.HAL3.enabled 1", "shell setprop persist.camera.eis.enable 1" });
+            if (adbActive) tbOutput.Text = "Camera2 API enabled!";
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
