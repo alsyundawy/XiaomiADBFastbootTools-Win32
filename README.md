@@ -1,4 +1,4 @@
-# XiaomiADBFastbootTools
+# Xiaomi ADB/Fastboot Tools
 
 **Features:**
 
