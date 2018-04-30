@@ -17,7 +17,8 @@ namespace XiaomiADBFastbootTools
             get { return tbInfo.Text; }
             set {
                 tbInfo.Text = value;
-                tbInfo.SelectionStart = tbInfo.TextLength - 1;
+                if (tbInfo.TextLength > 0)
+                    tbInfo.SelectionStart = tbInfo.TextLength - 1;
                 }
         }
 
