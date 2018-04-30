@@ -3,9 +3,9 @@
 **Features:**
 
 * **Debloater** \- Remove unnecessary apps and services
-* **Camera2 API Enabler** \- Enable the camera2 API of Android (only works in TWRP)
+* **Camera2 API Enabler** \- Enable the camera2 API of Android (TWRP required)
 * **Get device properties** \- Retrieve tons of statistics and information about your phone
-* **Image Flasher** \- Flash the boot/cust/modem/persist/recovery/system partition with an image
+* **Image Flasher** \- Flash the boot/cust/modem/persist/recovery/system partition with an image (unlocked bootloader required)
 * **Wiper** \- Wipe the cache or perform a factory reset
 * **Bootloader Unlocker** \- Lock or unlock the bootloader of the Mi A1 \(OEM unlocking must be enabled\)
 * **ADB Rebooter** \- Advanced rebooting options using ADB
