@@ -15,9 +15,9 @@
 
 **Warning: Use the tool at your own risk. Removing factory apps which aren't in the tool may break your phone.**
 
-[Download the binary (ADB/Fastboot included)](https://github.com/Saki-EU/XiaomiADBFastbootTools/releases/download/2.0.0.1/Xiaomi_ADB_Fastboot_Tools.zip)
+[Download the binary (ADB/Fastboot included)](https://github.com/Saki-EU/XiaomiADBFastbootTools/releases/latest)
 
-Changelog:
+Changelog (up until 2.0):
 
     Update v2.0.0.0
     - Added new apps to the Debloater
