@@ -54,6 +54,14 @@ Changelog (up until 2.0):
 
 **Questions and Answers:**
 
+**Q:** Do I need an unlocked bootloader or root to use the tool?
+
+**A:** The Image Flasher and the Wiper require an unlocked bootloader but everything else works without rooting or unlocking.
+
+**Q:** Do uninstalled system apps affect OTA updates?
+
+**A:** No, you are free to install updates without the fear of bricking your device or losing data.
+
 **Q:** Chrome says the archive may be dangerous. Why is that?
 
 **A:** The ZIP contains three executables \(the tool, ADB and Fastboot\) and two DLLs which could be seen as potentially dangerous. That's the only thing I can think of.
