@@ -7,7 +7,7 @@
 * **Get device properties** \- Retrieve tons of statistics and information about your phone
 * **Image Flasher** \- Flash the boot/cust/modem/persist/recovery/system partition with an image (unlocked bootloader required)
 * **Wiper** \- Wipe the cache or perform a factory reset
-* **Bootloader Unlocker** \- Lock or unlock the bootloader of the Mi A1 \(OEM unlocking must be enabled\)
+* **OEM Unlocker** \- Lock or unlock the bootloader \(Unlocking is supported by the Mi A1 only\)
 * **ADB Rebooter** \- Advanced rebooting options using ADB
 * **Fastboot Rebooter** \- Advanced rebooting options using fastboot
 
