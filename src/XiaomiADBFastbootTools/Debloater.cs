@@ -68,6 +68,7 @@ namespace XiaomiADBFastbootTools
                     Apps.Add(new App("FM Radio", "com.miui.fm"));
                     Apps.Add(new App("Gmail", "com.google.android.gm"));
                     Apps.Add(new App("Google App", "com.google.android.googlequicksearchbox"));
+                    Apps.Add(new App("Google Assistant", "com.google.android.apps.googleassistant"));
                     Apps.Add(new App("Google Chrome", "com.android.chrome"));
                     Apps.Add(new App("Google Drive", "com.google.android.apps.docs"));
                     Apps.Add(new App("Google Duo", "com.google.android.apps.tachyon"));
@@ -81,6 +82,7 @@ namespace XiaomiADBFastbootTools
                     Apps.Add(new App("Mi Cloud Backup", "com.miui.cloudbackup", "Mi Cloud & Backup"));
                     Apps.Add(new App("Mi Credit", "com.xiaomi.payment"));
                     Apps.Add(new App("Mi Drop", "com.xiaomi.midrop"));
+                    Apps.Add(new App("Mi Roaming", "com.miui.virtualsim"));
                     Apps.Add(new App("Mi Video", "com.miui.videoplayer"));
                     Apps.Add(new App("Mobile Device Information Provider", "com.amazon.appmanager"));
                     Apps.Add(new App("Music", "com.miui.player"));
@@ -103,6 +105,7 @@ namespace XiaomiADBFastbootTools
                 Apps.Add(new App("Files", "com.android.documentsui"));
                 Apps.Add(new App("Gmail", "com.google.android.gm"));
                 Apps.Add(new App("Google App", "com.google.android.googlequicksearchbox"));
+                Apps.Add(new App("Google Assistant", "com.google.android.apps.googleassistant"));
                 Apps.Add(new App("Google Chrome", "com.android.chrome"));
                 Apps.Add(new App("Google Drive", "com.google.android.apps.docs"));
                 Apps.Add(new App("Google Duo", "com.google.android.apps.tachyon"));

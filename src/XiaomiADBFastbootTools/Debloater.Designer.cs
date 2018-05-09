@@ -80,7 +80,7 @@
             "YouTube"});
             this.appListBox.Location = new System.Drawing.Point(12, 29);
             this.appListBox.Name = "appListBox";
-            this.appListBox.Size = new System.Drawing.Size(327, 382);
+            this.appListBox.Size = new System.Drawing.Size(327, 400);
             this.appListBox.Sorted = true;
             this.appListBox.TabIndex = 0;
             // 
@@ -97,7 +97,7 @@
             // 
             this.bUninstall.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bUninstall.ForeColor = System.Drawing.Color.Red;
-            this.bUninstall.Location = new System.Drawing.Point(12, 451);
+            this.bUninstall.Location = new System.Drawing.Point(12, 469);
             this.bUninstall.Name = "bUninstall";
             this.bUninstall.Size = new System.Drawing.Size(327, 28);
             this.bUninstall.TabIndex = 2;
@@ -107,7 +107,7 @@
             // bAddApps
             // 
             this.bAddApps.ForeColor = System.Drawing.Color.Black;
-            this.bAddApps.Location = new System.Drawing.Point(12, 417);
+            this.bAddApps.Location = new System.Drawing.Point(12, 435);
             this.bAddApps.Name = "bAddApps";
             this.bAddApps.Size = new System.Drawing.Size(327, 28);
             this.bAddApps.TabIndex = 3;
@@ -121,7 +121,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(351, 487);
+            this.ClientSize = new System.Drawing.Size(351, 505);
             this.Controls.Add(this.bAddApps);
             this.Controls.Add(this.bUninstall);
             this.Controls.Add(this.label1);
