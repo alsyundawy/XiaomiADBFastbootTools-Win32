@@ -112,7 +112,7 @@
             this.loadfastboot,
             this.browsedrivers,
             this.about});
-            this.optionsMenu.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.optionsMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionsMenu.Name = "optionsMenu";
             this.optionsMenu.Size = new System.Drawing.Size(69, 21);
             this.optionsMenu.Text = "Options";
@@ -120,7 +120,7 @@
             // loadadb
             // 
             this.loadadb.Name = "loadadb";
-            this.loadadb.Size = new System.Drawing.Size(237, 22);
+            this.loadadb.Size = new System.Drawing.Size(234, 22);
             this.loadadb.Text = "Load device (ADB)";
             this.loadadb.Click += new System.EventHandler(this.loadadb_Click);
             // 
@@ -128,7 +128,7 @@
             // 
             this.loadfastboot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.loadfastboot.Name = "loadfastboot";
-            this.loadfastboot.Size = new System.Drawing.Size(237, 22);
+            this.loadfastboot.Size = new System.Drawing.Size(234, 22);
             this.loadfastboot.Text = "Load device (Fastboot)";
             this.loadfastboot.Click += new System.EventHandler(this.loaddevice_Click);
             // 
@@ -136,7 +136,7 @@
             // 
             this.browsedrivers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.browsedrivers.Name = "browsedrivers";
-            this.browsedrivers.Size = new System.Drawing.Size(237, 22);
+            this.browsedrivers.Size = new System.Drawing.Size(234, 22);
             this.browsedrivers.Text = "Browse for ADB/Fastboot";
             this.browsedrivers.Click += new System.EventHandler(this.browsedrivers_Click);
             // 
@@ -144,7 +144,7 @@
             // 
             this.about.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.about.Name = "about";
-            this.about.Size = new System.Drawing.Size(237, 22);
+            this.about.Size = new System.Drawing.Size(234, 22);
             this.about.Text = "About";
             this.about.Click += new System.EventHandler(this.about_Click);
             // 
@@ -157,7 +157,7 @@
             this.deviceinfoBox.Controls.Add(this.label2);
             this.deviceinfoBox.Controls.Add(this.label1);
             this.deviceinfoBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deviceinfoBox.Font = new System.Drawing.Font("Roboto Medium", 11F);
+            this.deviceinfoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.deviceinfoBox.Location = new System.Drawing.Point(0, 0);
             this.deviceinfoBox.Name = "deviceinfoBox";
             this.deviceinfoBox.Size = new System.Drawing.Size(348, 81);
@@ -170,7 +170,7 @@
             this.bootloaderLabel.AutoSize = true;
             this.bootloaderLabel.Location = new System.Drawing.Point(99, 57);
             this.bootloaderLabel.Name = "bootloaderLabel";
-            this.bootloaderLabel.Size = new System.Drawing.Size(69, 18);
+            this.bootloaderLabel.Size = new System.Drawing.Size(68, 18);
             this.bootloaderLabel.TabIndex = 5;
             this.bootloaderLabel.Text = "unlocked";
             // 
@@ -188,7 +188,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 18);
+            this.label3.Size = new System.Drawing.Size(85, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Bootloader:";
             // 
@@ -197,7 +197,7 @@
             this.serialLabel.AutoSize = true;
             this.serialLabel.Location = new System.Drawing.Point(116, 21);
             this.serialLabel.Name = "serialLabel";
-            this.serialLabel.Size = new System.Drawing.Size(138, 18);
+            this.serialLabel.Size = new System.Drawing.Size(129, 18);
             this.serialLabel.TabIndex = 3;
             this.serialLabel.Text = "345bo3b4ghghg5b";
             // 
@@ -206,7 +206,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 18);
+            this.label2.Size = new System.Drawing.Size(85, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Codename:";
             // 
@@ -215,7 +215,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 18);
+            this.label1.Size = new System.Drawing.Size(103, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Serial number:";
             // 
@@ -232,7 +232,7 @@
             this.flasherGroup.Controls.Add(this.partitionBox);
             this.flasherGroup.Controls.Add(this.bBrowse);
             this.flasherGroup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flasherGroup.Location = new System.Drawing.Point(3, 20);
+            this.flasherGroup.Location = new System.Drawing.Point(3, 19);
             this.flasherGroup.Name = "flasherGroup";
             this.flasherGroup.Size = new System.Drawing.Size(539, 71);
             this.flasherGroup.TabIndex = 2;
@@ -266,7 +266,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(140, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 17);
+            this.label4.Size = new System.Drawing.Size(106, 17);
             this.label4.TabIndex = 2;
             this.label4.Text = "Select partition:";
             // 
@@ -283,7 +283,7 @@
             "system"});
             this.partitionBox.Location = new System.Drawing.Point(143, 39);
             this.partitionBox.Name = "partitionBox";
-            this.partitionBox.Size = new System.Drawing.Size(109, 23);
+            this.partitionBox.Size = new System.Drawing.Size(109, 24);
             this.partitionBox.TabIndex = 1;
             this.partitionBox.SelectedIndexChanged += new System.EventHandler(this.partitionBox_SelectedIndexChanged);
             // 
@@ -381,10 +381,11 @@
             this.unlockerGroup.Size = new System.Drawing.Size(236, 57);
             this.unlockerGroup.TabIndex = 5;
             this.unlockerGroup.TabStop = false;
-            this.unlockerGroup.Text = "Bootloader Unlocker (Mi A1 only)";
+            this.unlockerGroup.Text = "OEM Unlocker / Locker";
             // 
             // bLock
             // 
+            this.bLock.ForeColor = System.Drawing.Color.Red;
             this.bLock.Location = new System.Drawing.Point(122, 21);
             this.bLock.Name = "bLock";
             this.bLock.Size = new System.Drawing.Size(109, 27);
@@ -407,22 +408,22 @@
             // 
             this.tbOutput.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tbOutput.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbOutput.Location = new System.Drawing.Point(0, 98);
+            this.tbOutput.Location = new System.Drawing.Point(0, 99);
             this.tbOutput.Multiline = true;
             this.tbOutput.Name = "tbOutput";
             this.tbOutput.ReadOnly = true;
             this.tbOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbOutput.Size = new System.Drawing.Size(348, 308);
+            this.tbOutput.Size = new System.Drawing.Size(348, 307);
             this.tbOutput.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Roboto Medium", 9F);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label5.Location = new System.Drawing.Point(0, 81);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 14);
+            this.label5.Size = new System.Drawing.Size(44, 15);
             this.label5.TabIndex = 7;
             this.label5.Text = "Status:";
             // 
@@ -495,7 +496,7 @@
             // 
             // bDebloater
             // 
-            this.bDebloater.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bDebloater.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bDebloater.Location = new System.Drawing.Point(10, 21);
             this.bDebloater.Name = "bDebloater";
             this.bDebloater.Size = new System.Drawing.Size(260, 60);
@@ -590,7 +591,7 @@
             this.ClientSize = new System.Drawing.Size(897, 431);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
-            this.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;

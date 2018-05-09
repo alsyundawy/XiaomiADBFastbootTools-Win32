@@ -16,10 +16,6 @@ namespace XiaomiADBFastbootTools
     {
         string imagefile = "";
         string driverfolder = Directory.GetCurrentDirectory() + "\\drivers";
-        string output = "";
-
-        bool fastbootActive = false;
-        bool adbActive = false;
 
         public MainForm()
         {
@@ -32,18 +28,19 @@ namespace XiaomiADBFastbootTools
             ((ToolStripDropDownMenu)(loadadb.Owner)).ShowImageMargin = false;
         }
 
+        #region Interface
         public bool Fastboot_Check()
         {
-            tbOutput.Text = "Please wait...";
+            tbOutput.Text = "Getting device info...";
+            tbOutput.Update();
             Cursor.Current = Cursors.WaitCursor;
             string str = "";
-            if (File.Exists(driverfolder + "\\fastboot.exe") != true) str += "fastboot.exe not found!\r\n";
-            if (File.Exists(driverfolder + "\\AdbWinApi.dll") != true) str += "AdbWinApi.dll not found!\r\n";
-            if (File.Exists(driverfolder + "\\AdbWinUsbApi.dll") != true) str += "AdbWinUsbApi.dll not found!\r\n";
-            tbOutput.Text = str;
+            if (!File.Exists(driverfolder + "\\fastboot.exe")) str += "fastboot.exe not found!\r\n";
+            if (!File.Exists(driverfolder + "\\AdbWinApi.dll")) str += "AdbWinApi.dll not found!\r\n";
+            if (!File.Exists(driverfolder + "\\AdbWinUsbApi.dll")) str += "AdbWinUsbApi.dll not found!\r\n";
             if (str != "")
             {
-                fastbootActive = false;
+                tbOutput.Text = str;
                 return false;
             }
             System.Diagnostics.Process process = new System.Diagnostics.Process();
@@ -61,12 +58,14 @@ namespace XiaomiADBFastbootTools
             if (line == null)
             {
                 tbOutput.Text = "No device found!";
+                serialLabel.Text = "";
+                codenameLabel.Text = "";
+                bootloaderLabel.Text = "";
                 process.Close();
-                fastbootActive = false;
                 return false;
             }
 
-            serialLabel.Text = line.Remove(line.Length-9);
+            serialLabel.Text = line.Remove(line.Length - 9);
             process.Close();
 
             startInfo.Arguments = "getvar product";
@@ -80,13 +79,13 @@ namespace XiaomiADBFastbootTools
             if (info.Contains("unlocked: true")) bootloaderLabel.Text = "unlocked";
             if (info.Contains("unlocked: false")) bootloaderLabel.Text = "locked";
             process.Close();
-            fastbootActive = true;
             return true;
         }
 
         public bool ADB_Check()
         {
-            tbOutput.Text = "Please wait...";
+            tbOutput.Text = "Getting device info...";
+            tbOutput.Update();
             Cursor.Current = Cursors.WaitCursor;
             string str = "";
             if (File.Exists(driverfolder + "\\adb.exe") != true) str += "adb.exe not found!\r\n";
@@ -95,7 +94,6 @@ namespace XiaomiADBFastbootTools
             tbOutput.Text = str;
             if (str != "")
             {
-                adbActive = false;
                 return false;
             }
             System.Diagnostics.Process process = new System.Diagnostics.Process();
@@ -113,13 +111,17 @@ namespace XiaomiADBFastbootTools
             if (line.Contains("no devices"))
             {
                 tbOutput.Text = "No device found!";
-                adbActive = false;
+                serialLabel.Text = "";
+                codenameLabel.Text = "";
+                bootloaderLabel.Text = "";
                 return false;
             }
             if (line.Contains("unauthorized"))
             {
                 tbOutput.Text = "Device unauthorised!\r\nPlease allow USB debugging!";
-                adbActive = false;
+                serialLabel.Text = "";
+                codenameLabel.Text = "";
+                bootloaderLabel.Text = "";
                 return false;
             }
             serialLabel.Text = process.StandardOutput.ReadToEnd();
@@ -136,15 +138,15 @@ namespace XiaomiADBFastbootTools
             if (bl.Contains("0")) bootloaderLabel.Text = "unlocked";
             if (bl.Contains("1")) bootloaderLabel.Text = "locked";
             process.Close();
-            adbActive = true;
             return true;
         }
 
-        public void Fastboot(string[] args)
+        public string Fastboot(string[] args)
         {
-            tbOutput.Text = "Please wait...";
             Cursor.Current = Cursors.WaitCursor;
-            if (!Fastboot_Check()) return;
+            if (!Fastboot_Check()) return null;
+            tbOutput.Text = "Please wait...";
+            tbOutput.Update();
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.UseShellExecute = false;
@@ -153,28 +155,36 @@ namespace XiaomiADBFastbootTools
             startInfo.RedirectStandardOutput = true;
             startInfo.FileName = driverfolder + "\\fastboot.exe";
             process.StartInfo = startInfo;
-            tbOutput.Text = "";
-            string op;
+            string ret = "";
 
+            string line;
             foreach (string s in args)
             {
                 startInfo.Arguments = s;
                 process.Start();
-                op = process.StandardError.ReadToEnd();
-                if (op.Length > 0)
-                    tbOutput.Text += op;
-                op = process.StandardOutput.ReadToEnd();
-                if (op.Length > 0)
-                    tbOutput.Text += op;
+                line = process.StandardError.ReadToEnd();
+                if (line.Length > 0)
+                    ret += line;
+
+                line = process.StandardOutput.ReadToEnd();
+                if (line.Length > 0)
+                    ret += line;
                 process.Close();
             }
+            return ret;
         }
 
-        public void ADB(string[] args)
+        public string Fastboot(string arg)
         {
-            tbOutput.Text = "Please wait...";
+            return Fastboot(new string[] { arg });
+        }
+
+        public string ADB(string[] args)
+        {
             Cursor.Current = Cursors.WaitCursor;
-            if (!ADB_Check()) return;
+            if (!ADB_Check()) return null;
+            tbOutput.Text = "Please wait...";
+            tbOutput.Update();
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.UseShellExecute = false;
@@ -183,25 +193,30 @@ namespace XiaomiADBFastbootTools
             startInfo.RedirectStandardOutput = true;
             startInfo.FileName = driverfolder + "\\adb.exe";
             process.StartInfo = startInfo;
-            tbOutput.Text = "";
-            string op;
+            string ret = "";
 
+            string line;
             foreach (string s in args)
             {
                 startInfo.Arguments = s;
                 process.Start();
-                op = process.StandardError.ReadToEnd();
-                if (op.Length > 0)
-                    tbOutput.Text += op;
-                op = process.StandardOutput.ReadToEnd();
-                if (op.Length > 0)
-                    tbOutput.Text += op;
+                line = process.StandardOutput.ReadToEnd();
+                if (line.Length > 0)
+                    ret += line;
                 process.Close();
             }
+            return ret;
+        }
+
+        public string ADB(string arg)
+        {
+            return ADB(new string[] { arg });
         }
 
         public void Uninstall(App app)
         {
+            tbOutput.AppendText("Uninstalling " + app.AppName + "...\r\n");
+            tbOutput.Update();
             Cursor.Current = Cursors.WaitCursor;
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
@@ -211,15 +226,13 @@ namespace XiaomiADBFastbootTools
             startInfo.RedirectStandardOutput = true;
             startInfo.FileName = driverfolder + "\\adb.exe";
             process.StartInfo = startInfo;
-            output += (app.AppName + ":\r\n");
-            foreach (string s in app.PackageNames)
-            {
-                startInfo.Arguments = "shell pm uninstall --user 0 " + s;
-                process.Start();
-                output += ("- " + process.StandardOutput.ReadToEnd());
-                process.Close();
-            }
-        }
+            startInfo.Arguments = "shell pm uninstall --user 0 " + app.PackageName;
+            process.Start();
+            tbOutput.AppendText("Result: " + process.StandardOutput.ReadToEnd() + "\r\n");
+            tbOutput.Update();
+            process.Close();
+        } 
+        #endregion
 
         private void bBrowse_Click(object sender, EventArgs e)
         {
@@ -275,120 +288,120 @@ namespace XiaomiADBFastbootTools
         private void bFlash_Click(object sender, EventArgs e)
         {
             if (imagefile.Length == 0) return;
-            Fastboot(new string[] { "flash " + partitionBox.SelectedItem.ToString() + " " + imagefile });
+            string line = Fastboot("flash " + partitionBox.SelectedItem.ToString() + " " + imagefile);
+            if (line != null) tbOutput.Text = line;
         }
 
         private void bBootRecovery_Click(object sender, EventArgs e)
         {
-            Fastboot(new string[] { "boot " + imagefile });
+            string line = Fastboot("boot " + imagefile);
+            if (line != null) tbOutput.Text = line;
         }
 
         private void bFastbootRebootSystem_Click(object sender, EventArgs e)
         {
-            Fastboot(new string[] { "reboot" });
+            string line = Fastboot("reboot");
+            if (line != null) tbOutput.Text = line;
         }
 
         private void bFastbootRebootFastboot_Click(object sender, EventArgs e)
         {
-            Fastboot(new string[] { "reboot bootloader" });
+            string line = Fastboot("reboot bootloader");
+            if (line != null) tbOutput.Text = line;
         }
 
         private void bFastbootRebootEDL_Click(object sender, EventArgs e)
         {
-            Fastboot(new string[] { "oem edl" });
+            string line = Fastboot("oem edl");
+            if (line != null) tbOutput.Text = line;
         }
 
         private void bWipeCache_Click(object sender, EventArgs e)
         {
-            Fastboot(new string[] { "erase cache" });
+            string line = Fastboot("erase cache");
+            if (line != null) tbOutput.Text = line;
         }
 
         private void bWipeData_Click(object sender, EventArgs e)
         {
-            Fastboot(new string[] { "erase cache", "erase userdata" });
+            string line = Fastboot(new string[] { "erase cache", "erase userdata" });
+            if (line != null) tbOutput.Text = line;
         }
 
         private void bUnlock_Click(object sender, EventArgs e)
         {
-            Fastboot(new string[] { "oem unlock" });
+            string line = Fastboot("oem unlock");
+            if (line != null) tbOutput.Text = line;
         }
 
         private void bLock_Click(object sender, EventArgs e)
         {
-            Fastboot(new string[] { "oem lock" });
+            string line = Fastboot("oem lock");
+            if (line != null) tbOutput.Text = line;
         }
 
         private void bADBRebootSystem_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "reboot" });
-            if (adbActive) tbOutput.Text = "Rebooting...";
+            string line = ADB("reboot");
+            if (line != null) tbOutput.Text = "Rebooting...";
         }
 
         private void bADBRebootRecovery_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "reboot recovery" });
-            if (adbActive) tbOutput.Text = "Rebooting...";
+            string line = ADB("reboot recovery");
+            if (line != null) tbOutput.Text = "Rebooting...";
         }
 
         private void bADBRebootFastboot_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "reboot bootloader" });
-            if (adbActive) tbOutput.Text = "Rebooting...";
+            string line = ADB("reboot bootloader");
+            if (line != null) tbOutput.Text = "Rebooting...";
         }
 
         private void bADBRebootEDL_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "reboot edl" });
-            if (adbActive) tbOutput.Text = "Rebooting...";
+            string line = ADB("reboot edl");
+            if (line != null) tbOutput.Text = "Rebooting...";
         }
 
         private void bDeviceProperties_Click(object sender, EventArgs e)
         {
-            if (!ADB_Check()) return;
-            System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.UseShellExecute = false;
-            startInfo.CreateNoWindow = true;
-            startInfo.RedirectStandardError = true;
-            startInfo.RedirectStandardOutput = true;
-            startInfo.FileName = driverfolder + "\\adb.exe";
-            startInfo.Arguments = "shell getprop";
-            process.StartInfo = startInfo;
+            string line = ADB("shell getprop");
+            tbOutput.Text = "";
+            if (line == null) return;
             InfoForm inf = new InfoForm();
-            process.Start();
-            inf.InfoText = process.StandardOutput.ReadToEnd();
+            inf.InfoText = line;
             inf.ShowDialog();
-            process.Close();
         }
 
         private void bDebloater_Click(object sender, EventArgs e)
         {
-            if (!ADB_Check()) return;
-            Debloater dlg = new Debloater();
+            string region = ADB("shell getprop ro.miui.region");
+            if (region == null) return;
+            tbOutput.Text = "";
+            Debloater dlg = new Debloater(region.Trim());
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                tbOutput.Text = "Please wait...";
                 foreach (object selected in dlg.appListBox.CheckedItems)
                 {
                     foreach (App app in dlg.Apps)
                     {
-                        if (app.AppName == selected.ToString())
+                        if (app.UIName == selected.ToString())
                             Uninstall(app);
                     }
                 }
-                foreach (App app in dlg.CustomApps)
+                foreach (App app in dlg.Apps)
                 {
-                    Uninstall(app);
+                    if (app.UIName == "Custom")
+                        Uninstall(app);
                 }
-                tbOutput.Text = output;
-                output = "";
             }
         }
 
         private void bCamera2API_Click(object sender, EventArgs e)
         {
-            ADB(new string[] { "shell setprop persist.camera.HAL3.enabled 1", "shell setprop persist.camera.eis.enable 1" });
-            if (adbActive) tbOutput.Text = "Camera2 API enabled!";
+            string line = ADB(new string[] { "shell setprop persist.camera.HAL3.enabled 1", "shell setprop persist.camera.eis.enable 1" });
+            if (line != null) tbOutput.Text = "Enabled!";
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)

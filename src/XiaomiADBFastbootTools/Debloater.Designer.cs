@@ -80,7 +80,7 @@
             "YouTube"});
             this.appListBox.Location = new System.Drawing.Point(12, 29);
             this.appListBox.Name = "appListBox";
-            this.appListBox.Size = new System.Drawing.Size(327, 422);
+            this.appListBox.Size = new System.Drawing.Size(327, 382);
             this.appListBox.Sorted = true;
             this.appListBox.TabIndex = 0;
             // 
@@ -89,7 +89,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(327, 17);
+            this.label1.Size = new System.Drawing.Size(328, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Select the apps and services you wish to get rid of:";
             // 
@@ -97,7 +97,7 @@
             // 
             this.bUninstall.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.bUninstall.ForeColor = System.Drawing.Color.Red;
-            this.bUninstall.Location = new System.Drawing.Point(12, 495);
+            this.bUninstall.Location = new System.Drawing.Point(12, 451);
             this.bUninstall.Name = "bUninstall";
             this.bUninstall.Size = new System.Drawing.Size(327, 28);
             this.bUninstall.TabIndex = 2;
@@ -107,7 +107,7 @@
             // bAddApps
             // 
             this.bAddApps.ForeColor = System.Drawing.Color.Black;
-            this.bAddApps.Location = new System.Drawing.Point(12, 461);
+            this.bAddApps.Location = new System.Drawing.Point(12, 417);
             this.bAddApps.Name = "bAddApps";
             this.bAddApps.Size = new System.Drawing.Size(327, 28);
             this.bAddApps.TabIndex = 3;
@@ -121,12 +121,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(351, 535);
+            this.ClientSize = new System.Drawing.Size(351, 487);
             this.Controls.Add(this.bAddApps);
             this.Controls.Add(this.bUninstall);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.appListBox);
-            this.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
