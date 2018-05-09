@@ -54,7 +54,7 @@ Changelog (prior to GitHub release):
 
 **Questions and Answers:**
 
-**Q:** Do I need an unlocked bootloader or root to use the tool?
+**Q:** Do I need an unlocked bootloader or root access to use the tool?
 
 **A:** The Image Flasher and the Wiper require an unlocked bootloader but everything else works without rooting or unlocking.
 
