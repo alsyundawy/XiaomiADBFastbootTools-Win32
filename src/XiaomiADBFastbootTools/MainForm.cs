@@ -367,8 +367,8 @@ namespace XiaomiADBFastbootTools
         private void bDeviceProperties_Click(object sender, EventArgs e)
         {
             string line = ADB("shell getprop");
-            tbOutput.Text = "";
             if (line == null) return;
+            tbOutput.Text = "";
             InfoForm inf = new InfoForm();
             inf.InfoText = line;
             inf.ShowDialog();
