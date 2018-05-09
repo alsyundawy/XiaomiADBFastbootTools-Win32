@@ -11,7 +11,7 @@
 * **ADB Rebooter** \- Advanced rebooting options using ADB
 * **Fastboot Rebooter** \- Advanced rebooting options using fastboot
 
-[Screenshot](https://i.imgur.com/Ui0VdzI.png)
+[Screenshot](https://i.imgur.com/6dBYdzL.png)
 
 **Warning: Use the tool at your own risk. Removing factory apps which aren't in the tool may break your phone.**
 
