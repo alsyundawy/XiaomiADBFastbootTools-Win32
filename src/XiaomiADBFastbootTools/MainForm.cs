@@ -79,6 +79,8 @@ namespace XiaomiADBFastbootTools
             if (info.Contains("unlocked: true")) bootloaderLabel.Text = "unlocked";
             if (info.Contains("unlocked: false")) bootloaderLabel.Text = "locked";
             process.Close();
+            tbOutput.Text = "Device found!";
+            tbOutput.Update();
             return true;
         }
 
@@ -138,6 +140,8 @@ namespace XiaomiADBFastbootTools
             if (bl.Contains("0")) bootloaderLabel.Text = "unlocked";
             if (bl.Contains("1")) bootloaderLabel.Text = "locked";
             process.Close();
+            tbOutput.Text = "Device found!";
+            tbOutput.Update();
             return true;
         }
 
