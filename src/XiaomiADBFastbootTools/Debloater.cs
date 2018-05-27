@@ -28,6 +28,7 @@ namespace XiaomiADBFastbootTools
             {
                 if (region.Contains("CN"))
                 {
+                    Apps.Add(new App("Analytics", "com.miui.analytics"));
                     Apps.Add(new App("App Vault", "com.miui.personalassistant"));
                     Apps.Add(new App("Browser", "com.android.browser"));
                     Apps.Add(new App("Calendar", "com.android.calendar"));
@@ -50,6 +51,7 @@ namespace XiaomiADBFastbootTools
                     Apps.Add(new App("Xiaomi SIM Activate Service", "com.xiaomi.simactivate.service"));
                     Apps.Add(new App("Yellow Pages", "com.miui.yellowpage"));
                 } else {
+                    Apps.Add(new App("Analytics", "com.miui.analytics"));
                     Apps.Add(new App("App Vault", "com.mi.android.globalpersonalassistant"));
                     Apps.Add(new App("Apps (Mi App Store)", "com.xiaomi.mipicks"));
                     Apps.Add(new App("Browser", "com.android.browser"));

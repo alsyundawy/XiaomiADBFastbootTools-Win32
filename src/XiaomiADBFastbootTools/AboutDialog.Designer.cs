@@ -53,7 +53,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 17);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Version 2.1.2.0";
+            this.label2.Text = "Version 2.1.3.0";
             // 
             // label3
             // 
