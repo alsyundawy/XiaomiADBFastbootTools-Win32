@@ -59,5 +59,45 @@ namespace XiaomiADBFastbootTools.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] adb {
+            get {
+                object obj = ResourceManager.GetObject("adb", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] AdbWinApi {
+            get {
+                object obj = ResourceManager.GetObject("AdbWinApi", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] AdbWinUsbApi {
+            get {
+                object obj = ResourceManager.GetObject("AdbWinUsbApi", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] fastboot {
+            get {
+                object obj = ResourceManager.GetObject("fastboot", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

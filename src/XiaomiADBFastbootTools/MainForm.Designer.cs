@@ -33,7 +33,6 @@
             this.optionsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.loadadb = new System.Windows.Forms.ToolStripMenuItem();
             this.loadfastboot = new System.Windows.Forms.ToolStripMenuItem();
-            this.browsedrivers = new System.Windows.Forms.ToolStripMenuItem();
             this.about = new System.Windows.Forms.ToolStripMenuItem();
             this.deviceinfoBox = new System.Windows.Forms.GroupBox();
             this.bootloaderLabel = new System.Windows.Forms.Label();
@@ -110,7 +109,6 @@
             this.optionsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadadb,
             this.loadfastboot,
-            this.browsedrivers,
             this.about});
             this.optionsMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionsMenu.Name = "optionsMenu";
@@ -120,7 +118,7 @@
             // loadadb
             // 
             this.loadadb.Name = "loadadb";
-            this.loadadb.Size = new System.Drawing.Size(234, 22);
+            this.loadadb.Size = new System.Drawing.Size(222, 22);
             this.loadadb.Text = "Load device (ADB)";
             this.loadadb.Click += new System.EventHandler(this.loadadb_Click);
             // 
@@ -128,23 +126,15 @@
             // 
             this.loadfastboot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.loadfastboot.Name = "loadfastboot";
-            this.loadfastboot.Size = new System.Drawing.Size(234, 22);
+            this.loadfastboot.Size = new System.Drawing.Size(222, 22);
             this.loadfastboot.Text = "Load device (Fastboot)";
             this.loadfastboot.Click += new System.EventHandler(this.loaddevice_Click);
-            // 
-            // browsedrivers
-            // 
-            this.browsedrivers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.browsedrivers.Name = "browsedrivers";
-            this.browsedrivers.Size = new System.Drawing.Size(234, 22);
-            this.browsedrivers.Text = "Browse for ADB/Fastboot";
-            this.browsedrivers.Click += new System.EventHandler(this.browsedrivers_Click);
             // 
             // about
             // 
             this.about.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.about.Name = "about";
-            this.about.Size = new System.Drawing.Size(234, 22);
+            this.about.Size = new System.Drawing.Size(222, 22);
             this.about.Text = "About";
             this.about.Click += new System.EventHandler(this.about_Click);
             // 
@@ -657,7 +647,6 @@
         private System.Windows.Forms.Button bUnlock;
         private System.Windows.Forms.TextBox tbOutput;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ToolStripMenuItem browsedrivers;
         private System.Windows.Forms.FolderBrowserDialog driverBrowser;
         private System.Windows.Forms.ToolStripMenuItem loadadb;
         private System.Windows.Forms.SplitContainer splitContainer1;

@@ -135,6 +135,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="adb.exe" />
+    <None Include="AdbWinApi.dll" />
+    <None Include="AdbWinUsbApi.dll" />
+    <None Include="fastboot.exe" />
     <Content Include="fastboot_z92_icon.ico" />
   </ItemGroup>
   <ItemGroup>

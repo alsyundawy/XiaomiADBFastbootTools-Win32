@@ -15,7 +15,6 @@ namespace XiaomiADBFastbootTools
     public partial class MainForm : Form
     {
         string imagefile = "";
-        string driverfolder = Directory.GetCurrentDirectory() + "\\drivers";
 
         public MainForm()
         {
@@ -26,6 +25,15 @@ namespace XiaomiADBFastbootTools
             bootloaderLabel.Text = "";
             ((ToolStripDropDownMenu)(loadfastboot.Owner)).ShowCheckMargin = false;
             ((ToolStripDropDownMenu)(loadadb.Owner)).ShowImageMargin = false;
+            WriteFiles();
+        }
+
+        public void WriteFiles()
+        {
+            File.WriteAllBytes(System.IO.Path.GetTempPath() + "\\adb.exe", Properties.Resources.adb);
+            File.WriteAllBytes(System.IO.Path.GetTempPath() + "\\fastboot.exe", Properties.Resources.fastboot);
+            File.WriteAllBytes(System.IO.Path.GetTempPath() + "\\AdbWinApi.dll", Properties.Resources.AdbWinApi);
+            File.WriteAllBytes(System.IO.Path.GetTempPath() + "\\AdbWinUsbApi.dll", Properties.Resources.AdbWinUsbApi);
         }
 
         #region Interface
@@ -34,22 +42,13 @@ namespace XiaomiADBFastbootTools
             tbOutput.Text = "Getting device info...";
             tbOutput.Update();
             Cursor.Current = Cursors.WaitCursor;
-            string str = "";
-            if (!File.Exists(driverfolder + "\\fastboot.exe")) str += "fastboot.exe not found!\r\n";
-            if (!File.Exists(driverfolder + "\\AdbWinApi.dll")) str += "AdbWinApi.dll not found!\r\n";
-            if (!File.Exists(driverfolder + "\\AdbWinUsbApi.dll")) str += "AdbWinUsbApi.dll not found!\r\n";
-            if (str != "")
-            {
-                tbOutput.Text = str;
-                return false;
-            }
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.UseShellExecute = false;
             startInfo.CreateNoWindow = true;
             startInfo.RedirectStandardError = true;
             startInfo.RedirectStandardOutput = true;
-            startInfo.FileName = driverfolder + "\\fastboot.exe";
+            startInfo.FileName = System.IO.Path.GetTempPath() + "\\fastboot.exe";
             process.StartInfo = startInfo;
 
             startInfo.Arguments = "devices";
@@ -89,22 +88,13 @@ namespace XiaomiADBFastbootTools
             tbOutput.Text = "Getting device info...";
             tbOutput.Update();
             Cursor.Current = Cursors.WaitCursor;
-            string str = "";
-            if (File.Exists(driverfolder + "\\adb.exe") != true) str += "adb.exe not found!\r\n";
-            if (File.Exists(driverfolder + "\\AdbWinApi.dll") != true) str += "AdbWinApi.dll not found!\r\n";
-            if (File.Exists(driverfolder + "\\AdbWinUsbApi.dll") != true) str += "AdbWinUsbApi.dll not found!\r\n";
-            tbOutput.Text = str;
-            if (str != "")
-            {
-                return false;
-            }
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.UseShellExecute = false;
             startInfo.CreateNoWindow = true;
             startInfo.RedirectStandardError = true;
             startInfo.RedirectStandardOutput = true;
-            startInfo.FileName = driverfolder + "\\adb.exe";
+            startInfo.FileName = System.IO.Path.GetTempPath() + "\\adb.exe";
             process.StartInfo = startInfo;
 
             startInfo.Arguments = "get-serialno";
@@ -157,7 +147,7 @@ namespace XiaomiADBFastbootTools
             startInfo.CreateNoWindow = true;
             startInfo.RedirectStandardError = true;
             startInfo.RedirectStandardOutput = true;
-            startInfo.FileName = driverfolder + "\\fastboot.exe";
+            startInfo.FileName = System.IO.Path.GetTempPath() + "\\fastboot.exe";
             process.StartInfo = startInfo;
             string ret = "";
 
@@ -195,7 +185,7 @@ namespace XiaomiADBFastbootTools
             startInfo.CreateNoWindow = true;
             startInfo.RedirectStandardError = true;
             startInfo.RedirectStandardOutput = true;
-            startInfo.FileName = driverfolder + "\\adb.exe";
+            startInfo.FileName = System.IO.Path.GetTempPath() + "\\adb.exe";
             process.StartInfo = startInfo;
             string ret = "";
 
@@ -228,7 +218,7 @@ namespace XiaomiADBFastbootTools
             startInfo.CreateNoWindow = true;
             startInfo.RedirectStandardError = true;
             startInfo.RedirectStandardOutput = true;
-            startInfo.FileName = driverfolder + "\\adb.exe";
+            startInfo.FileName = System.IO.Path.GetTempPath() + "\\adb.exe";
             process.StartInfo = startInfo;
             startInfo.Arguments = "shell pm uninstall --user 0 " + app.PackageName;
             process.Start();
@@ -273,20 +263,6 @@ namespace XiaomiADBFastbootTools
         private void loadadb_Click(object sender, EventArgs e)
         {
             ADB_Check();
-        }
-
-        private void browsedrivers_Click(object sender, EventArgs e)
-        {
-            if (driverBrowser.ShowDialog() == DialogResult.OK)
-            {
-                driverfolder = driverBrowser.SelectedPath;
-            }
-            string str = "";
-            if (File.Exists(driverfolder + "\\adb.exe") != true) str += "adb.exe not found!\r\n";
-            if (File.Exists(driverfolder + "\\fastboot.exe") != true) str += "fastboot.exe not found!\r\n";
-            if (File.Exists(driverfolder + "\\AdbWinApi.dll") != true) str += "AdbWinApi.dll not found!\r\n";
-            if (File.Exists(driverfolder + "\\AdbWinUsbApi.dll") != true) str += "AdbWinUsbApi.dll not found!\r\n";
-            tbOutput.Text = str;
         }
 
         private void bFlash_Click(object sender, EventArgs e)
@@ -416,6 +392,10 @@ namespace XiaomiADBFastbootTools
             System.Diagnostics.Process[] proc2 = System.Diagnostics.Process.GetProcessesByName("fastboot");
             foreach (System.Diagnostics.Process p in proc2)
                 p.Kill();
+            File.Delete(System.IO.Path.GetTempPath() + "\\adb.exe");
+            File.Delete(System.IO.Path.GetTempPath() + "\\fastboot.exe");
+            File.Delete(System.IO.Path.GetTempPath() + "\\AdbWinApi.dll");
+            File.Delete(System.IO.Path.GetTempPath() + "\\AdbWinUsbApi.dll");
         }
     }
 }
