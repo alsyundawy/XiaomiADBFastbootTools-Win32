@@ -392,6 +392,7 @@ namespace XiaomiADBFastbootTools
             System.Diagnostics.Process[] proc2 = System.Diagnostics.Process.GetProcessesByName("fastboot");
             foreach (System.Diagnostics.Process p in proc2)
                 p.Kill();
+            System.Threading.Thread.Sleep(100);
             File.Delete(System.IO.Path.GetTempPath() + "\\adb.exe");
             File.Delete(System.IO.Path.GetTempPath() + "\\fastboot.exe");
             File.Delete(System.IO.Path.GetTempPath() + "\\AdbWinApi.dll");
