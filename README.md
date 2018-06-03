@@ -15,7 +15,7 @@
 
 **Warning: Use the tool at your own risk. Removing factory apps which aren't in the tool may break your phone.**
 
-[Download the binary (ADB/Fastboot + instructions included)](https://github.com/Saki-EU/XiaomiADBFastbootTools/releases/latest)
+[Download the binary (instructions included)](https://github.com/Saki-EU/XiaomiADBFastbootTools/releases/latest)
 
 Changelog (prior to GitHub release):
 
@@ -61,10 +61,6 @@ Changelog (prior to GitHub release):
 **Q:** Do uninstalled system apps affect OTA updates?
 
 **A:** No, you are free to install updates without the fear of bricking your device or losing data.
-
-**Q:** Chrome says the archive may be dangerous. Why is that?
-
-**A:** The ZIP contains three executables \(the tool, ADB and Fastboot\) and two DLLs which could be seen as potentially dangerous. That's the only thing I can think of.
 
 **Q:** The tool is called Xiaomi ADB/Fastboot Tools. Does that mean it only works with Xiaomi devices?
 
