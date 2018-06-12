@@ -33,18 +33,22 @@ namespace XiaomiADBFastbootTools
                     Apps.Add(new App("Browser", "com.android.browser"));
                     Apps.Add(new App("Calendar", "com.android.calendar"));
                     Apps.Add(new App("Clock", "com.android.deskclock"));
+                    Apps.Add(new App("Direct Service / Quick Apps", "com.miui.hybrid"));
                     Apps.Add(new App("Downloads", "com.android.providers.downloads.ui"));
                     Apps.Add(new App("Feedback", "com.miui.bugreport"));
                     Apps.Add(new App("File Manager", "com.android.fileexplorer"));
                     Apps.Add(new App("FM Radio", "com.miui.fm"));
+                    Apps.Add(new App("KLO Bugreport", "com.miui.klo.bugreport"));
+                    Apps.Add(new App("Mab", "com.xiaomi.ab"));
                     Apps.Add(new App("Mi AI", "com.miui.voiceassist"));
                     Apps.Add(new App("Mi Cloud", "com.miui.cloudservice", "Mi Cloud & Backup"));
                     Apps.Add(new App("Mi Cloud Backup", "com.miui.cloudbackup", "Mi Cloud & Backup"));
                     Apps.Add(new App("Mi Credit", "com.xiaomi.payment"));
                     Apps.Add(new App("Mi Video", "com.miui.video"));
                     Apps.Add(new App("Mi Wallet", "com.mipay.wallet"));
+                    Apps.Add(new App("MiuiDaemon", "com.miui.daemon"));
+                    Apps.Add(new App("Msa", "com.miui.systemAdSolution"));
                     Apps.Add(new App("Music", "com.miui.player"));
-                    Apps.Add(new App("Quick Apps", "com.miui.hybrid"));
                     Apps.Add(new App("Recorder", "com.android.soundrecorder"));
                     Apps.Add(new App("Search", "com.android.quicksearchbox"));
                     Apps.Add(new App("Xiaomi Account", "com.xiaomi.vipaccount"));
@@ -60,6 +64,7 @@ namespace XiaomiADBFastbootTools
                     Apps.Add(new App("Cleaner", "com.miui.cleanmaster"));
                     Apps.Add(new App("Clock", "com.android.deskclock"));
                     Apps.Add(new App("Compass", "com.miui.compass"));
+                    Apps.Add(new App("Direct Service / Quick Apps", "com.miui.hybrid"));
                     Apps.Add(new App("Downloads", "com.android.providers.downloads.ui"));
                     Apps.Add(new App("Facebook", "com.facebook.katana", "Facebook (all services)"));
                     Apps.Add(new App("Facebook App Installer", "com.facebook.system", "Facebook (all services)"));
@@ -79,6 +84,8 @@ namespace XiaomiADBFastbootTools
                     Apps.Add(new App("Google Photos", "com.google.android.apps.photos"));
                     Apps.Add(new App("Google Play Movies", "com.google.android.videos"));
                     Apps.Add(new App("Google Play Music", "com.google.android.music"));
+                    Apps.Add(new App("KLO Bugreport", "com.miui.klo.bugreport"));
+                    Apps.Add(new App("Mab", "com.xiaomi.ab"));
                     Apps.Add(new App("Mail", "com.android.email"));
                     Apps.Add(new App("Mi Cloud", "com.miui.cloudservice", "Mi Cloud & Backup"));
                     Apps.Add(new App("Mi Cloud Backup", "com.miui.cloudbackup", "Mi Cloud & Backup"));
@@ -86,10 +93,11 @@ namespace XiaomiADBFastbootTools
                     Apps.Add(new App("Mi Drop", "com.xiaomi.midrop"));
                     Apps.Add(new App("Mi Roaming", "com.miui.virtualsim"));
                     Apps.Add(new App("Mi Video", "com.miui.videoplayer"));
+                    Apps.Add(new App("MiuiDaemon", "com.miui.daemon"));
                     Apps.Add(new App("Mobile Device Information Provider", "com.amazon.appmanager"));
+                    Apps.Add(new App("Msa", "com.miui.msa.global"));
                     Apps.Add(new App("Music", "com.miui.player"));
                     Apps.Add(new App("Notes", "com.miui.notes"));
-                    Apps.Add(new App("Quick Apps", "com.miui.hybrid"));
                     Apps.Add(new App("Recorder", "com.android.soundrecorder"));
                     Apps.Add(new App("Scanner", "com.xiaomi.scanner"));
                     Apps.Add(new App("Screen Recorder", "com.miui.screenrecorder"));
@@ -98,7 +106,6 @@ namespace XiaomiADBFastbootTools
                     Apps.Add(new App("Yellow Pages", "com.miui.yellowpage"));
                     Apps.Add(new App("YouTube", "com.google.android.youtube"));
                 }
-
             } else {
                 Apps.Add(new App("Calculator", "com.google.android.calculator"));
                 Apps.Add(new App("Calendar", "com.google.android.calendar"));

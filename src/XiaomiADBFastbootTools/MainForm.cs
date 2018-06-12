@@ -376,6 +376,8 @@ namespace XiaomiADBFastbootTools
                         Uninstall(app);
                 }
             }
+            if (tbOutput.Text.Length > 0)
+                tbOutput.AppendText("Done!");
         }
 
         private void bCamera2API_Click(object sender, EventArgs e)
