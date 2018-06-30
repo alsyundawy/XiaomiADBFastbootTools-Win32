@@ -56,7 +56,7 @@ Changelog (prior to GitHub release):
 
 **Q:** The tool doesn't run on my Windows PC, is there anything I should have installed?
 
-**A:** Yes, if you are running an older version of Windows that doesn't come with .NET Framework 4.6 or later pre-installed, you have to install it yourself. [Download](https://www.microsoft.com/net/download/dotnet-framework-runtime)
+**A:** Yes, if you are running an older version of Windows that doesn't come with .NET Framework 4.6 or later pre-installed, you have to manually install it from [here](https://www.microsoft.com/net/download/dotnet-framework-runtime).
 
 **Q:** The tool doesn't detect my phone even though it's connected and USB debugging is enabled. What gives?
 
