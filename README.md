@@ -58,6 +58,10 @@ Changelog (prior to GitHub release):
 
 **A:** Yes, if you are running an older version of Windows that doesn't come with .NET Framework 4.6 or later pre-installed, you have to install it yourself. [Download](https://www.microsoft.com/net/download/dotnet-framework-runtime)
 
+**Q:** The tool doesn't detect my phone even though it's connected and USB debugging is enabled. What gives?
+
+**A:** Windows most likely does not recognise your phone in ADB. Install the universal ADB drivers from [here](http://dl.adbdriver.com/upload/adbdriver.zip).
+
 **Q:** Do I need an unlocked bootloader or root access to use the tool?
 
 **A:** The Image Flasher and the Wiper require an unlocked bootloader but everything else works without rooting or unlocking.
