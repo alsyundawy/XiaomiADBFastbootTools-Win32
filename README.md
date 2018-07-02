@@ -52,7 +52,7 @@ Changelog (prior to GitHub release):
     Update v1.0.1.0
     - Fixed scaling issues caused by higher scaling settings
 
-**Questions and Answers:**
+**Frequently Asked Questions:**
 
 **Q:** The tool doesn't run on my Windows PC, is there anything I should have installed?
 
