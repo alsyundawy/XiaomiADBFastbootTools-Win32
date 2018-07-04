@@ -357,7 +357,7 @@ namespace XiaomiADBFastbootTools
         private void bDebloater_Click(object sender, EventArgs e)
         {
             string region = ADB("shell getprop ro.miui.region");
-            if (region.Length < 2)
+            if (region == null || region.Length < 2)
                 region = ADB("shell getprop ro.miui.region2");
             if (region == null) return;
             tbOutput.Text = "";
