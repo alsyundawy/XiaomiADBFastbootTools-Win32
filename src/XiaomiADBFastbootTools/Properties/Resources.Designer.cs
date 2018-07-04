@@ -99,5 +99,15 @@ namespace XiaomiADBFastbootTools.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon fastboot_z92_icon {
+            get {
+                object obj = ResourceManager.GetObject("fastboot_z92_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

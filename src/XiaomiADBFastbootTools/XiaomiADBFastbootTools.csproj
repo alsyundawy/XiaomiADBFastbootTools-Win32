@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>fastboot_z92_icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\fastboot_z92_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,52 +63,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutDialog.cs">
+    <Compile Include="Forms\AboutDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutDialog.Designer.cs">
+    <Compile Include="Forms\AboutDialog.Designer.cs">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
-    <Compile Include="CustomAppAdder.cs">
+    <Compile Include="Forms\CustomAppAdder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomAppAdder.Designer.cs">
+    <Compile Include="Forms\CustomAppAdder.Designer.cs">
       <DependentUpon>CustomAppAdder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Debloater.cs">
+    <Compile Include="Forms\Debloater.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Debloater.Designer.cs">
+    <Compile Include="Forms\Debloater.Designer.cs">
       <DependentUpon>Debloater.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InfoForm.cs">
+    <Compile Include="Forms\InfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InfoForm.Designer.cs">
+    <Compile Include="Forms\InfoForm.Designer.cs">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutDialog.resx">
+    <EmbeddedResource Include="Forms\AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomAppAdder.resx">
+    <EmbeddedResource Include="Forms\CustomAppAdder.resx">
       <DependentUpon>CustomAppAdder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Debloater.resx">
+    <EmbeddedResource Include="Forms\Debloater.resx">
       <DependentUpon>Debloater.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InfoForm.resx">
+    <EmbeddedResource Include="Forms\InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -135,11 +135,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="adb.exe" />
-    <None Include="AdbWinApi.dll" />
-    <None Include="AdbWinUsbApi.dll" />
-    <None Include="fastboot.exe" />
-    <Content Include="fastboot_z92_icon.ico" />
+    <None Include="Resources\adb.exe" />
+    <None Include="Resources\AdbWinApi.dll" />
+    <None Include="Resources\AdbWinUsbApi.dll" />
+    <None Include="Resources\fastboot.exe" />
+    <Content Include="Resources\fastboot_z92_icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
