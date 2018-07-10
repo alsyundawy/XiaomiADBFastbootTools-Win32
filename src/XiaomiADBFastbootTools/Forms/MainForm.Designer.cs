@@ -348,7 +348,7 @@
             this.bWipeData.Name = "bWipeData";
             this.bWipeData.Size = new System.Drawing.Size(182, 27);
             this.bWipeData.TabIndex = 1;
-            this.bWipeData.Text = "Wipe cache and userdata";
+            this.bWipeData.Text = "Wipe cache and data";
             this.bWipeData.UseVisualStyleBackColor = true;
             this.bWipeData.Click += new System.EventHandler(this.bWipeData_Click);
             // 

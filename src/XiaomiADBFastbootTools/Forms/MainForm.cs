@@ -372,11 +372,6 @@ namespace XiaomiADBFastbootTools
                             Uninstall(app);
                     }
                 }
-                foreach (App app in dlg.Apps)
-                {
-                    if (app.UIName == "Custom")
-                        Uninstall(app);
-                }
             }
             if (tbOutput.Text.Length > 0)
                 tbOutput.AppendText("Done!");

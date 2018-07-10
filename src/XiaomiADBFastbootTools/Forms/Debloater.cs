@@ -145,7 +145,11 @@ namespace XiaomiADBFastbootTools
                 string[] apps = dlg.tbApps.Text.Trim().Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string str in apps)
                     if (str.Length > 0)
-                        Apps.Add(new App(str, str, "Custom"));
+                        Apps.Add(new App(str, str));
+                appListBox.Items.Clear();
+                foreach (App a in Apps)
+                    if (!appListBox.Items.Contains(a.UIName))
+                        appListBox.Items.Add(a.UIName);
             }
         }
     }      
