@@ -15,6 +15,7 @@ namespace XiaomiADBFastbootTools
     public partial class MainForm : Form
     {
         string imagefile = "";
+        int camera2button = 0;
 
         public MainForm()
         {
@@ -379,8 +380,22 @@ namespace XiaomiADBFastbootTools
 
         private void bCamera2API_Click(object sender, EventArgs e)
         {
-            string line = ADB(new string[] { "shell setprop persist.camera.HAL3.enabled 1", "shell setprop persist.camera.eis.enable 1" });
-            if (line != null) tbOutput.Text = "Enabled!";
+            if (camera2button % 2 == 0)
+            {
+                string line = ADB(new string[] { "shell setprop persist.camera.HAL3.enabled 1", "shell setprop persist.camera.eis.enable 1" });
+                if (line != null) {
+                    tbOutput.Text = "Enabled!";
+                    bCamera2API.Text = "Disable camera2 API (TWRP only)";
+                    camera2button++;
+                }
+            } else {
+                string line = ADB(new string[] { "shell setprop persist.camera.HAL3.enabled 0", "shell setprop persist.camera.eis.enable 0" });
+                if (line != null) {
+                    tbOutput.Text = "Disabled!";
+                    bCamera2API.Text = "Enable camera2 API (TWRP only)";
+                    camera2button++;
+                }
+            }
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
