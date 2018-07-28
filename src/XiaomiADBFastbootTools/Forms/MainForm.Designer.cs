@@ -265,6 +265,7 @@
             this.partitionBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.partitionBox.FormattingEnabled = true;
             this.partitionBox.Items.AddRange(new object[] {
+            "antirbpass",
             "boot",
             "cust",
             "modem",

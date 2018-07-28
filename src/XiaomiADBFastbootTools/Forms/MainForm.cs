@@ -20,7 +20,7 @@ namespace XiaomiADBFastbootTools
         public MainForm()
         {
             InitializeComponent();
-            partitionBox.SelectedIndex = 4;
+            partitionBox.SelectedIndex = 5;
             serialLabel.Text = "";
             codenameLabel.Text = "";
             bootloaderLabel.Text = "";
