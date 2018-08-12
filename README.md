@@ -1,4 +1,6 @@
-# Xiaomi ADB/Fastboot Tools
+# Xiaomi ADB/Fastboot Tools (Win32)
+
+## This project has been abandoned and redeveloped in Java. The new project can be found [here](https://github.com/Saki-EU/XiaomiADBFastbootTools).
 
 **Features:**
 
