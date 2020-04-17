@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Xiaomi ADB/Fastboot Tools")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("r/Xiaomi")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Xiaomi ADB/Fastboot Tools")]
-[assembly: AssemblyCopyright("Copyright © Saki_EU 2018")]
+[assembly: AssemblyCopyright("Copyright © Szaki 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,6 +1,6 @@
-# Xiaomi ADB/Fastboot Tools (Win32)
+# Xiaomi ADB/Fastboot Tools (.NET)
 
-## This project has been abandoned and redeveloped in Java. The new project can be found [here](https://github.com/Saki-EU/XiaomiADBFastbootTools).
+## This project has been abandoned and redeveloped for the JVM. The new project can be found [here](https://github.com/Szaki/XiaomiADBFastbootTools).
 
 **Features:**
 
@@ -17,7 +17,7 @@
 
 **Warning: Use the tool at your own risk. Removing factory apps which aren't in the tool may break your phone.**
 
-[Download the binary (instructions included)](https://github.com/Saki-EU/XiaomiADBFastbootTools/releases/latest)
+[Download the binary](https://github.com/Szaki/XiaomiADBFastbootTools/releases/latest)
 
 Changelog (prior to GitHub release):
 

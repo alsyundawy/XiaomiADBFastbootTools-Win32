@@ -33,7 +33,7 @@ namespace XiaomiADBFastbootTools
         {
             try
             {
-                System.Diagnostics.Process.Start("https://twitter.com/Saki_EU");
+                System.Diagnostics.Process.Start("https://twitter.com/Szaki_EU");
             }
             catch
             {

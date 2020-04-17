@@ -62,7 +62,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(153, 17);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Developed by Saki_EU";
+            this.label3.Text = "Developed by Szaki_EU";
             // 
             // redditLink
             // 
@@ -83,7 +83,7 @@
             this.twitterLink.Size = new System.Drawing.Size(128, 17);
             this.twitterLink.TabIndex = 4;
             this.twitterLink.TabStop = true;
-            this.twitterLink.Text = "Saki_EU on Twitter";
+            this.twitterLink.Text = "Szaki_EU on Twitter";
             this.twitterLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.twitterLink_LinkClicked);
             // 
             // bOK
